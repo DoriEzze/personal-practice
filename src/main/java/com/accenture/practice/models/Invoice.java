@@ -22,9 +22,7 @@ public class Invoice {
     private Long customerId;
 
     @Column(name = "InvoiceDate")
-    private LocalDateTime dateObject;
-    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    //Sigo trabajando en cómo ajustar bien el formato de fecha
+    private LocalDateTime invoiceDate;
 
     @Column(name = "BillingAddress")
     private String billingAddress;

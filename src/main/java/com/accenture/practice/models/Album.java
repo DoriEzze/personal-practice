@@ -15,6 +15,12 @@ public class Album {
     @Column(name = "AlbumId")
     private Long albumId;
 
+    @Column(name = "Title")
     private String title;
+
+    @Column(name = "ArtistId")
     private Long artistId;
+
+    @Column(name = "Column1")
+    private byte[] column1;
 }

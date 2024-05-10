@@ -20,4 +20,7 @@ public class Album {
 
     @Column(name = "ArtistId")
     private Long artistId;
+
+    @Column(name = "Column1")
+    private byte[] column1;
 }

@@ -10,7 +10,6 @@ import lombok.Data;
 @Table(name = "InvoiceLine")
 @Data
 public class InvoiceLine {
-
     @Id
     @Column(name = "InvoiceLineId")
     private Long invoiceLineId;

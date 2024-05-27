@@ -10,7 +10,6 @@ import lombok.Data;
 @Table(name = "MediaType")
 @Data
 public class MediaType {
-
     @Id
     @Column(name = "MediaTypeId")
     private Long mediaTypeId;

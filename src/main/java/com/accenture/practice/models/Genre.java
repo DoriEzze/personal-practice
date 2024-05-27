@@ -10,7 +10,6 @@ import lombok.Data;
 @Table(name = "Genre")
 @Data
 public class Genre {
-
     @Id
     @Column(name = "GenreId")
     private Long genreId;

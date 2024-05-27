@@ -10,7 +10,6 @@ import lombok.Data;
 @Table(name = "PlaylistTrack")
 @Data
 public class PlaylistTrack {
-
     @Id
     @Column(name = "PlaylistId")
     private Long playlistId;

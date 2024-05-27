@@ -14,6 +14,6 @@ public class Playlist {
     @Column(name = "PlaylistId")
     private Long playlistId;
 
+    @Column(name = "Name")
     private String name;
-
 }

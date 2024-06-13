@@ -2,7 +2,7 @@ package org.accenture.implementations;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.accenture.entities.responses.RegisterNewAgentResponse;
-import org.accenture.interfaces.IGameSteps;
+import org.accenture.behaviors.IGameSteps;
 import org.accenture.utils.Mapper;
 
 public class GameStepsImpl implements IGameSteps {

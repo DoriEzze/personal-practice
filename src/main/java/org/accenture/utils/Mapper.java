@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.accenture.entities.responses.ResponseBody;
+import org.accenture.exceptions.SpaceTradersApiException;
 
 public class Mapper {
     private final ObjectMapper mapper;
@@ -18,7 +19,7 @@ public class Mapper {
     public <T> T deserializeResponse(String response, Class<T> classType) throws JsonProcessingException {
         ResponseBody body = this.mapper.readValue(response, ResponseBody.class);
         if (body.getError() != null) {
-            throw new Error(body.getError().getMessage());
+            throw new SpaceTradersApiException(body.getError());
         }
         return this.mapper.convertValue(body.getData(), classType);
     }

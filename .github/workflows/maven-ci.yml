@@ -19,7 +19,7 @@ jobs:
           repository: teamcubation-client/accenture-tests
           path: test-repo
           ref: main
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.ACCENTURE_TESTS_PAT }}
 
       - name: Set up JDK
         uses: actions/setup-java@v3

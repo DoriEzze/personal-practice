@@ -1,0 +1,36 @@
+name: Java CI with Maven and External Tests
+
+on:
+  pull_request:
+    branches: [ main-complexity ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: main-repo
+
+      - name: Checkout test repository
+        uses: actions/checkout@v3
+        with:
+          repository: teamcubation-client/accenture-tests
+          path: test-repo
+          ref: main
+          token: ${{ secrets.PAT }}
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Copy tests to main repository
+        run: cp -R test-repo/src/test main-repo/src/
+
+      - name: Build and test with Maven
+        run: |
+          cd main-repo
+          mvn clean test

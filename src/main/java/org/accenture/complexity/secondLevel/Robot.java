@@ -1,4 +1,4 @@
-package org.accenture.exercises.level1;
+package org.accenture.complexity.secondLevel;
 
 public class Robot {
     public String learnWord(String word) {

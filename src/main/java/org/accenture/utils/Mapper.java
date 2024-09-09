@@ -1,6 +1,7 @@
 package org.accenture.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -16,11 +17,15 @@ public class Mapper {
         this.mapper.registerModule(new JavaTimeModule());
     }
 
-    public <T> T deserializeResponse(String response, Class<T> classType) throws JsonProcessingException {
-        ResponseBody body = this.mapper.readValue(response, ResponseBody.class);
-        if (body.getError() != null) {
-            throw new SpaceTradersApiException(body.getError());
+    public <T> T deserializeResponse(String response, TypeReference<T> classType) {
+        try {
+            ResponseBody body = this.mapper.readValue(response, ResponseBody.class);
+            if (body.getError() != null) {
+                throw new SpaceTradersApiException(body.getError());
+            }
+            return this.mapper.convertValue(body.getData(), classType);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
-        return this.mapper.convertValue(body.getData(), classType);
     }
 }

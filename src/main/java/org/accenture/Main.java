@@ -3,12 +3,14 @@ package org.accenture;
 import org.accenture.behaviors.GameSteps;
 import org.accenture.entities.responses.*;
 import org.accenture.services.GameStepsService;
+import org.accenture.services.HardCodedClientWrapper;
 
 import java.util.List;
 
 public class Main {
+    static GameSteps gameSteps = new GameStepsService(new HardCodedClientWrapper());
+
     public static void main(String[] args) {
-        GameSteps gameSteps = new GameStepsService();
         RegisterNewAgentResponse newAgent = gameSteps.registerNewAgent();
         System.out.println("Token: " + newAgent.getToken());
         AcceptContractResponse acceptContract = gameSteps.acceptContract("1");

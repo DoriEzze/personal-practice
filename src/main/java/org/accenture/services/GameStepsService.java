@@ -11,7 +11,11 @@ import java.util.List;
 
 public class GameStepsService implements GameSteps {
     private final Mapper mapper = new Mapper();
-    private final HttpClient httpClient = new HardCodedClientWrapper();
+    private final HttpClient httpClient;
+
+    public GameStepsService(HttpClient httpClientImpl) {
+        httpClient = httpClientImpl;
+    }
 
     @Override
     public RegisterNewAgentResponse registerNewAgent() {

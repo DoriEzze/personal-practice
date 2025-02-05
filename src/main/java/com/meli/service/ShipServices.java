@@ -29,7 +29,7 @@ public class ShipServices {
         return damagedSystem;
     }
 
-    public HttpEntity<String> setDamagedSystem(String system) {
+    public boolean setDamagedSystem(String system) {
         if (this.damagedSystem.equals(system)) {
             throw new SystemAlreadyDamagedException("System is already damaged");
         }
@@ -37,6 +37,6 @@ public class ShipServices {
             throw new InvalidSystemException("Invalid system name");
         }
         this.damagedSystem = system;
-        return ResponseEntity.ok("Damaged system set to: " + system);
+        return (true);
     }
 }

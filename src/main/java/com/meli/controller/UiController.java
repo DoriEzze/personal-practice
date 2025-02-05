@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class RestShipController {
+public class UiController {
 
     private final ShipServices shipServices = new ShipServices();
 
